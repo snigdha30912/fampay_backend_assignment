@@ -73,6 +73,12 @@ class VideoAPIView(ListAPIView):
             except:
                 pass
 
+"""
+Created VideoOrderAPIView
+this view can be used for sorting the data by ascending 
+and descending order of publishing date and video title.
+
+"""
 
 class VideoOrderAPIView(ListAPIView):
     queryset = Video.objects.all()
@@ -81,9 +87,12 @@ class VideoOrderAPIView(ListAPIView):
     ordering_fields = ['publishing_date', 'video_title']
     def get_queryset(self):
         return self.queryset
-        
 
+"""
+Created VideoFilerAPIView
+this view can be used for searching data by title and description
 
+"""       
 
 class VideoFilterAPIView(ListAPIView):
     queryset = Video.objects.all()
