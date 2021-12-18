@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'searchapi.apps.SearchapiConfig'
 ]
 
+# implemented swagger ui to document and display apis in human readable formatS
+
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'Bearer': {
