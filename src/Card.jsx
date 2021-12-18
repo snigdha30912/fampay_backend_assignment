@@ -19,6 +19,11 @@ const useStyles = makeStyles({
   }
 });
 
+/*
+Created the card component which displays the video title, 
+description, thumbnail url and publishing date in the form of cards
+*/
+
 export default function OutlinedCard({ card , loading}) {
 
   if (loading) {

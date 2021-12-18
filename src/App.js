@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Data from './Data';
 import '@coreui/coreui/dist/css/coreui.min.css';
