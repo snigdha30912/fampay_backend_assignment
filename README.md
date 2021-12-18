@@ -7,9 +7,10 @@
 4. Install the dependencies using `pip install -r requirements.txt`
 5. Migrate existing db tables by running `python manage.py migrate`
 6. Run the django development server using `python manage.py runserver`
-7. Switch to frontend branch
-8. Install dependencies using `npm i`
-9. Run react server using the command `npm run start`
+7. Clone the repository again
+8. Switch to frontend branch
+9. Install dependencies using `npm i`
+10. Run React JS development server using the command `npm run start`
 
 ### Overview
 The aim is to make an API to fetch latest videos sorted in reverse chronological order of their publishing date-time from YouTube for a given tag/search query in a paginated response.
