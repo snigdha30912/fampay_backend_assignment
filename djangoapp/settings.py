@@ -107,6 +107,8 @@ DATABASES = {
     }
 }
 
+# implemented pagination in Django REST Framework with page size 21.
+
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 21,
