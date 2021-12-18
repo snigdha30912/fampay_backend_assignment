@@ -15,6 +15,8 @@ containing video title, description, publishing date and thumbnail url
 class VideoAPIView(ListAPIView):
     serializer_class = VideoSerializer
     queryset = Video.objects.all()
+
+    # created an api key index which is used to refer to api key from the list of apikeys stored in settings
     api_key_index = 0
 
     # returns queryset sorted by descending order of publishing date
@@ -32,7 +34,7 @@ class VideoAPIView(ListAPIView):
             'order': 'date',
             'publishedAfter': '2020-01-01T00:00:00Z',
             'maxResults':15,
-            'key':settings.YOUTUBE_DATA_API_KEY[self.api_key_index]
+            'key':settings.YOUTUBE_DATA_API_KEY[self.api_key_index] # provinding the api key at a specified index
         }
         response = requests.get(youtube_api_url, params=params)
 
@@ -40,7 +42,8 @@ class VideoAPIView(ListAPIView):
             response.raise_for_status()
             return response.json()
         except:
-            if response.json()["error"]["errors"][0]["reason"] == "quotaExceeded":
+            # if the quota gets exceeded from one api key it switches to next api key
+            if response.json()["error"]["errors"][0]["reason"] == "quotaExceeded": 
                 print(response.json()["error"]["errors"][0]["reason"])
                 print("quota exceeded changing the api key")
                 self.api_key_index = (self.api_key_index+1)%len(settings.YOUTUBE_DATA_API_KEY)
