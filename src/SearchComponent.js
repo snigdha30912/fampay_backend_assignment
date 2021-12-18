@@ -7,10 +7,20 @@ import SearchIcon from '@mui/icons-material/Search';
 import {useHistory} from 'react-router-dom';
 import { useState } from 'react';
 
+/*
+Created a search component filters queries based on the keyword argument. 
+It searches if the keyword comes in video title or description and returns the 
+filtered query.
+*/
+
 export default function SearchComponent() {
   const history = useHistory();
   const [key, setKey] = useState("");
 
+  /*
+  When ENTER key is pressed after writing a key word to search for,
+  handleSearch function gets called. It returns the filtered results.
+  */
   const handleSearch = ()=>{
       console.log(key);
     history.push({

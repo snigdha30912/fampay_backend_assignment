@@ -5,7 +5,7 @@ import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import Pagination  from "./Pagination";
+import Pagination from "./Pagination";
 import SortComponent from "./SortComponent";
 import SearchComponent from "./SearchComponent";
 
@@ -16,17 +16,21 @@ const useStyles = makeStyles({
   }
 });
 
+/*
+Search data component fetches the filtered query from the search API defined in
+the backend and displays the filtered query objects in the form of cards.
+*/
 export default function SearchData() {
 
   const classes = useStyles();
-  const [data, setData ] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [videosPerPage, setVideosPerPage] = useState(9);
-  const apiUrl = "http://localhost:8000/searchapi/search/"+window.location.search;
+  const apiUrl = "http://localhost:8000/searchapi/search/" + window.location.search;
 
   useEffect(() => {
-    const fetchData = async () =>{
+    const fetchData = async () => {
       setLoading(true);
       const response = await axios.get(apiUrl);
       console.log(response);
@@ -38,7 +42,7 @@ export default function SearchData() {
   }, []);
 
   // Get current videos
-  const indexOfLastVideo = currentPage*videosPerPage;
+  const indexOfLastVideo = currentPage * videosPerPage;
   const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
   const currentVideos = data.slice(indexOfFirstVideo, indexOfLastVideo);
 
@@ -49,36 +53,36 @@ export default function SearchData() {
 
   return (
     <>
-    {!!data?(
-    <>
-    <div>
-    <Pagination videosPerPage={videosPerPage} totalVideos={data} paginate={paginate}/>
-    </div>
-    <div style={{display:'flex'}}>
-    <div style={{width:'100%'}}>
-    <SortComponent />
-    </div>
-    
-    </div>
-    
-    <Grid
-      container
-      spacing={4}
-      className={classes.gridContainer}
-      justify="center"
-    >
-      {currentVideos.map(card=>(
-        <Grid item xs={12} sm={6} md={4}>
-        <OutlinedCard card = {card} loading={loading}/>
-      </Grid>
-      ))}
-      
-    
-    </Grid>
-    </>):(<div></div>)}
-    
+      {!!data ? (
+        <>
+          <div>
+            <Pagination videosPerPage={videosPerPage} totalVideos={data} paginate={paginate} />
+          </div>
+          <div style={{ display: 'flex' }}>
+            <div style={{ width: '100%' }}>
+              <SortComponent />
+            </div>
+
+          </div>
+
+          <Grid
+            container
+            spacing={4}
+            className={classes.gridContainer}
+            justify="center"
+          >
+            {currentVideos.map(card => (
+              <Grid item xs={12} sm={6} md={4}>
+                <OutlinedCard card={card} loading={loading} />
+              </Grid>
+            ))}
+
+
+          </Grid>
+        </>) : (<div></div>)}
+
     </>
 
-    
+
   );
 }
