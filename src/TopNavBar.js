@@ -53,6 +53,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+// created top nav bar
 export default function TopNavBar() {
     const history = useHistory();
     const [key, setKey] = useState("");
