@@ -14,7 +14,7 @@ export default function OutlinedCard({ card , loading}) {
   }
 
   return (
-    <CCard style={{ width: '20rem' }}>
+    <CCard style={{ width: '21rem' }}>
   <CCardImage orientation="top" src={card.thumbnail_url} />
   <CCardBody>
     <CCardTitle style={{textAlign:'justify', fontSize:'16px'}}>{card.video_title}</CCardTitle>
