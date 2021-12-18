@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import Pagination  from "./Pagination";
 import SortComponent from "./SortComponent";
-import SearchComponent from './SearchComponent';
 
 const useStyles = makeStyles({
   gridContainer: {
@@ -15,7 +14,10 @@ const useStyles = makeStyles({
     paddingRight: "40px"
   }
 });
-
+/*
+this component fetches the sorted data from the REST Api created 
+in the backed and displays the fetched query as cards.
+*/
 export default function SortedDateData() {
 
   const classes = useStyles();
