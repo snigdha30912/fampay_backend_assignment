@@ -57,6 +57,11 @@ export default function TopNavBar() {
     const history = useHistory();
     const [key, setKey] = useState("");
   
+    /*
+    Created a search component filters queries based on the keyword argument. 
+    It searches if the keyword comes in video title or description and returns the 
+    filtered query.
+    */
     const handleSearch = ()=>{
         console.log(key);
       history.push({
