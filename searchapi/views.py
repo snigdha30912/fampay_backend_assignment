@@ -1,25 +1,27 @@
-from asyncio.windows_events import NULL
 from django.conf import settings
-from django.http import response
 import requests
 from .models import *
 from .serializers import VideoSerializer
 from rest_framework.generics import ListAPIView
-import asyncio
-from apscheduler.schedulers.background import BackgroundScheduler
 from rest_framework import filters
 
+"""
+Created VideoAPIView
+It is a ListAPIView which returns the list of video objects
+containing video title, description, publishing date and thumbnail url
 
+"""
 
 class VideoAPIView(ListAPIView):
     serializer_class = VideoSerializer
     queryset = Video.objects.all()
     api_key_index = 0
 
-    
+    # returns queryset sorted by descending order of publishing date
     def get_queryset(self):
         return self.queryset.order_by('-publishing_date')
 
+    # this function fetches the data from youtube api
     def _get_youtube_data(self):
         youtube_api_url = "https://www.googleapis.com/youtube/v3/search"
 
@@ -46,7 +48,7 @@ class VideoAPIView(ListAPIView):
             else:
                 return None
 
-        
+    # this function takes the video title, description and other parameters from the fetched youtube api and saves the objects in the serializer  
     def save_youtube_data(self):
         youtube_data = self._get_youtube_data()
         print(youtube_data)
