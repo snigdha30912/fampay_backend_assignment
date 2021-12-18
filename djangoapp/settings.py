@@ -166,4 +166,14 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
+
+
+"""
+created a list of youtube api keys to handle supply of multiple api keys so that 
+if quota exhausted on one it automatically uses next available api key.
+Right now all of the keys have their quotas exhausted. We need to add a new api key 
+to the list again fetch data from youtube api. 
+
+"""
+
 YOUTUBE_DATA_API_KEY = ["AIzaSyDmRFKYfQ7hcVGWGrogZzSCpXJjnPEZC1A", "AIzaSyCcPDqJmy42hGOA7QsAGzrUNnkT0JcUvW0", "AIzaSyBOJawDATjE9bJ6tU0JNIWDWQqIgQp7mvQ"]
