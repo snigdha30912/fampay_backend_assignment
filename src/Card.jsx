@@ -1,23 +1,6 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { CCard, CRow, CCol, CCardImage, CCardBody, CCardTitle, CCardText,CCardFooter,CButton } from "@coreui/react";
+import { CCard, CCardImage, CCardBody, CCardTitle, CCardText,CCardFooter,CButton } from "@coreui/react";
 
-const useStyles = makeStyles({
-  root: {
-    minWidth: 200
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "2px 2px",
-    transform: "scale(0.8)"
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  }
-});
 
 /*
 Created the card component which displays the video title, 

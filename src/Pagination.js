@@ -1,5 +1,10 @@
 import React from "react";
 
+/*
+Pagination component to add pagination.
+Each page contains maximum of 9 youtube video cards.
+*/
+
 const Pagination = ({videosPerPage, totalVideos, paginate}) =>{
     const pageNumbers = [];
     console.log(videosPerPage)
