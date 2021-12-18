@@ -8,6 +8,7 @@
 5. Migrate existing db tables by running `python manage.py migrate`
 6. Run the django development server using `python manage.py runserver`
 7. Clone the repository again
+8. Switch to frontend branch
 9. Install dependencies using `npm i`
 10. Run React JS development server using the command `npm run start`
 
